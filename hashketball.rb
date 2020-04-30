@@ -203,3 +203,16 @@ def big_shoe_rebounds
     end
   end
 end
+
+def most_points_scored
+  most_points = 0
+  game_hash.each do |team, team_specs|
+    team_specs[:players].collect do |player_detail, stat|
+      if player_detail[:points] > most_points
+        most_points = player_detail[:points]
+      end
+    end
+  end
+  most_points
+  binding.pry
+end
